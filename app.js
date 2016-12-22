@@ -28,7 +28,7 @@
 
   	//Sign In
   	const promise = auth.signInWithEmailAndPassword(email,pass);
-  	promise.catch(e=>console.log(e.message));
+  	promise.catch(e=>alert(e.message));
 
   });
 
@@ -42,20 +42,20 @@
 
   	//Sign Up
   	const promise = auth.createUserWithEmailAndPassword(email,pass);
-  	promise.catch(e=>console.log(e.message))
+  	promise.catch(e=>alert(e.message))
   });
 
   //Add a real time listener
   firebase.auth().onAuthStateChanged(firebaseuser=>{
   	if (firebaseuser) {
-  		console.log(firebase);
+  		alert(firebase);
   		signoutbtn.classList.remove('hide');
   		btn.classList.add('hide')
   		modal.modal('hide');
   	;
   	}
   	else{
-  		console.log('not logged in');
+  		//alert('not logged in');
   		signoutbtn.classList.add('hide');
   	}
   });
