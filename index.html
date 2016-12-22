@@ -9,14 +9,56 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
   <script src="todo.js"></script>	
   <link rel="stylesheet" href="style.css">
+  
 
 </head>
 <body>
 <div class="container" ng-controller="TodoCtrl">
 <div class="row">
-	<div class="col-sm-4"></div>
+	<div class="col-sm-4">
+		 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#login" id="loginbtn">
+		 <span class="glyphicon glyphicon-user"></span> Login
+		 </button>
+		 <button type="button" class="btn btn-success hide" id="SignOutbtn">
+		 	<span class="glyphicon glyphicon-user"></span> SignOut
+		 </button>
+	</div>
+
+<!-- login Model Start-->
+		<div class="modal fade" id="login" role="dialog">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Enter Login Details</h4>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+						  <label for="usr">Email:</label>
+						  <input type="email" class="form-control" id="usr" required/>
+						</div>
+						<div class="form-group">
+						  <label for="pwd">Password:</label>
+						  <input type="password" class="form-control" id="pwd" required/>
+						</div>
+							<div class="form-group">
+							<button type="button" class="btn btn-primary" id="signin" data-dismiss="modal">login</button>
+							<button type="button" class="btn btn-primary" id="signup" data-dismiss="modal">SignUp</button>
+						</div>
+					
+					</div>
+					 <div class="modal-footer">
+          			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        		</div>
+				</div>
+			</div>	
+		</div>
+<!-- login Model End-->
+
+
 	<div class="col-sm-4">
 	<div class="well"><h3>Total Todos : {{getTotaltodos()}}</h3></div>
 	
@@ -43,4 +85,5 @@
 </div>
 
 </body>
+<script src="app.js"></script>
 </html>
