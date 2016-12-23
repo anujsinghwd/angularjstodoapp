@@ -1,5 +1,5 @@
-var app = angular.module("myApp",[]);
-app.controller("TodoCtrl",function($scope){
+var app = angular.module("myApp",['ngStorage']);
+app.controller("TodoCtrl",function($scope,$localStorage){
 
 	$scope.todos = [];
 
@@ -19,5 +19,16 @@ app.controller("TodoCtrl",function($scope){
 		$scope.formTodoText = '';
 		}
 	};
+
+	$scope.saveData = function(){
+		$localStorage.ToDoList = $scope.todos;
+		alert('data saved')
+	};
+
+	$scope.loadData = function(){
+		$scope.todos = $localStorage.ToDoList;
+	};
+
+
 	
 });

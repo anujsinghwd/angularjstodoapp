@@ -8,12 +8,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
   <script src="todo.js"></script>	
   <link rel="stylesheet" href="style.css">
   
-
 </head>
 <body>
 <div class="container" ng-controller="TodoCtrl">
@@ -76,6 +76,11 @@
 		<button type="button" class="btn btn-success" ng-click="addTodo()"> <span class="glyphicon glyphicon-plus"></span> Add</button>	
 
 		<button class="btn btn-danger" style="float: right;" ng-click="RemoveCompleted()"><span class="glyphicon glyphicon-trash"></span> Remove Completed</button>
+	</div>
+	<div>
+		<button type="button" class="btn btn-info hide" id="save" ng-click="saveData()"> <span class="glyphicon glyphicon-cloud-upload"></span> Save</button>	
+
+		<button type="button" style="float: right;" id="load" class="btn btn-info hide" ng-click="loadData()"> <span class="glyphicon glyphicon-cloud-download"></span> Load From LocalStorage</button>	
 	</div>
 
 		

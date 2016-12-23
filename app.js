@@ -18,6 +18,8 @@
   const signupbtn = document.getElementById("signup");
   const signoutbtn = document.getElementById("SignOutbtn");
   const modal = document.getElementById("login");
+  const savebtn = document.getElementById("save");
+  const loadbtn = document.getElementById("load");
 
   // Add Login Event
   loginbtn.addEventListener('click',e=>{
@@ -48,12 +50,13 @@
   //Add a real time listener
   firebase.auth().onAuthStateChanged(firebaseuser=>{
   	if (firebaseuser) {
-  		alert(firebase);
+  		alert('logged in');
   		signoutbtn.classList.remove('hide');
+      savebtn.classList.remove('hide');
+      loadbtn.classList.remove('hide');
   		btn.classList.add('hide')
   		modal.modal('hide');
-  	;
-  	}
+    }
   	else{
   		//alert('not logged in');
   		signoutbtn.classList.add('hide');
@@ -64,6 +67,9 @@
   signoutbtn.addEventListener('click',e=>{
   	firebase.auth().signOut();
   	btn.classList.remove('hide');
+      savebtn.classList.add('hide');
+      loadbtn.classList.add('hide');
+    
   })
 
 
